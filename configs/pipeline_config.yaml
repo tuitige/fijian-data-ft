@@ -1,0 +1,42 @@
+# Configuration for Fijian Data Processing Pipeline
+
+# Data Processing Settings
+processing:
+  batch_size: 1000
+  max_sequence_length: 512
+  min_sentence_length: 3
+  language_detection_threshold: 0.8
+  
+# Data Quality Filters
+quality:
+  min_alpha_ratio: 0.6  # Minimum ratio of alphabetic characters
+  max_line_length: 1000
+  remove_duplicates: true
+  normalize_whitespace: true
+  
+# Output Formats
+output:
+  save_dictionary: true
+  save_text: true
+  save_training_data: true
+  include_metadata: true
+  
+# File Patterns
+patterns:
+  dictionary_files:
+    - "*dict*"
+    - "*dictionary*"
+    - "*vocab*"
+  text_files:
+    - "*.txt"
+    - "*.csv"
+  exclude_files:
+    - "*.log"
+    - "*.tmp"
+    - ".*"
+
+# Logging
+logging:
+  level: INFO
+  file: "logs/pipeline.log"
+  format: "%(asctime)s - %(levelname)s - %(message)s"
